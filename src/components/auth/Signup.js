@@ -34,22 +34,42 @@ class Signup extends Component {
           <div className="input-field">
             <i className="material-icons prefix">person</i>
             <label htmlFor="firstName">First Name</label>
-            <input type="text" id="firstName" onChange={this.handleChange} />
+            <input
+              type="text"
+              id="firstName"
+              onChange={this.handleChange}
+              required
+            />
           </div>
           <div className="input-field">
             <i className="material-icons prefix">person</i>
             <label htmlFor="lastName">Last Name</label>
-            <input type="text" id="lastName" onChange={this.handleChange} />
+            <input
+              type="text"
+              id="lastName"
+              onChange={this.handleChange}
+              required
+            />
           </div>
           <div className="input-field">
             <i className="material-icons prefix">email</i>
             <label htmlFor="email">Email</label>
-            <input type="email" id="email" onChange={this.handleChange} />
+            <input
+              type="email"
+              id="email"
+              onChange={this.handleChange}
+              required
+            />
           </div>
           <div className="input-field">
             <i className="material-icons prefix">https</i>
             <label htmlFor="password">Password</label>
-            <input type="password" id="password" onChange={this.handleChange} />
+            <input
+              type="password"
+              id="password"
+              onChange={this.handleChange}
+              required
+            />
           </div>
           <div className="input-field">
             <i className="material-icons prefix">https</i>
@@ -58,6 +78,7 @@ class Signup extends Component {
               type="password"
               id="cpassword"
               onChange={this.handleChange}
+              required
             />
           </div>
           <div className="input-field">

@@ -1,14 +1,45 @@
-import React from 'react';
+import React, { Component } from "react";
+import M from "materialize-css/dist/js/materialize.min.js";
+//import { BrowserRouter, Route } from "react-router-dom";
+import "materialize-css/dist/css/materialize.min.css";
+import SignedInLinks from "./SignedInLinks";
+import SignedOutLinks from "./SignedOutLinks";
+import { connect } from "react-redux";
 
-const sidenav = ()  => {
+class SideNav extends Component {
+  componentDidMount() {
+    var elem = document.querySelector(".sidenav");
+    M.Sidenav.init(elem, {
+      edge: "left",
+      inDuration: 250
+    });
+  }
+
+  render() {
+    const { auth, profile } = this.props;
+    const links = auth.uid ? (
+      <SignedInLinks profile={profile} />
+    ) : (
+      <SignedOutLinks />
+    );
     return (
-<ul className="sidenav" id="mobile-demo">
-    <li><a href="sass.html">Sass</a></li>
-    <li><a href="badges.html">Components</a></li>
-    <li><a href="collapsible.html">Javascript</a></li>
-    <li><a href="mobile.html">Mobile</a></li>
-  </ul>     
-    )
+      <div>
+        <ul id="slide-out" className="sidenav">
+          {links}
+        </ul>
+        <a data-target="slide-out" className="sidenav-trigger">
+          <i className="material-icons">menu</i>
+        </a>
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    auth: state.firebase.auth,
+    profile: state.firebase.profile
+  };
 };
 
-export default sidenav;
+export default connect(mapStateToProps)(SideNav);
