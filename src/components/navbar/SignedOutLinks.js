@@ -13,12 +13,11 @@ const SignedOutLinks = () => {
         </NavLink>
       </li>
       <li className="sidenav-close">
-        <i className="material-icons prefix amber-text hide-on-large-only	">
-          edit
-        </i>
         <NavLink to="/signup">
+          <i className="material-icons prefix amber-text hide-on-large-only	">
+            edit
+          </i>
           Sign Up{" "}
-          <i className="material-icons prefix hide-on-large-only">edit</i>
         </NavLink>
       </li>
     </ul>
